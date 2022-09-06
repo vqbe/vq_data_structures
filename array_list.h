@@ -1,5 +1,5 @@
-#ifndef VQ_ARRAY_LIST_H
-#define VQ_ARRAY_LIST_H
+#ifndef VQBE_ARRAY_LIST_H
+#define VQBE_ARRAY_LIST_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -7,36 +7,33 @@ extern "C" {
 
 #include <stdlib.h>
 
-#ifndef VQ_DEF_TYPE
-#define VQ_DEF_TYPE extern
-#endif // VQ_DEF_TYPE
+#ifndef VQBE_DEF_TYPE
+#define VQBE_DEF_TYPE extern
+#endif // VQBE_DEF_TYPE
 
-#define VQ_ARRAY_LIST_IMPLEMENTATION
-
-#ifndef VQ_DEFAULT_ARRAY_LIST_SIZE
-#define VQ_DEFAULT_ARRAY_LIST_SIZE 8
+#ifndef VQBE_DEFAULT_ARRAY_LIST_SIZE
+#define VQBE_DEFAULT_ARRAY_LIST_SIZE 8
 #endif
 
   typedef struct array_list array_list_t;
 
-  VQ_DEF_TYPE array_list_t* array_list_new(size_t element_size);
-  VQ_DEF_TYPE void array_list_destroy(array_list_t* list);
+  VQBE_DEF_TYPE array_list_t* array_list_new(size_t element_size);
+  VQBE_DEF_TYPE void array_list_destroy(array_list_t* list);
 
-  VQ_DEF_TYPE size_t array_list_get_size(array_list_t* list);
+  VQBE_DEF_TYPE size_t array_list_get_size(array_list_t* list);
 
-  VQ_DEF_TYPE void array_list_add(array_list_t* list, void* element);
-  VQ_DEF_TYPE void array_list_contains(array_list_t* list, void* element);
-  VQ_DEF_TYPE void array_list_remove(array_list_t* list, void* element);
-  VQ_DEF_TYPE void* array_list_get_at(array_list_t* list, unsigned int index);
-  VQ_DEF_TYPE void array_list_remove_at(array_list_t* list, unsigned int index);
-  VQ_DEF_TYPE void array_list_clear(array_list_t* list);
+  VQBE_DEF_TYPE void array_list_add(array_list_t* list, void* element);
+  VQBE_DEF_TYPE void array_list_contains(array_list_t* list, void* element);
+  VQBE_DEF_TYPE void array_list_remove(array_list_t* list, void* element);
+  VQBE_DEF_TYPE void* array_list_get_at(array_list_t* list, unsigned int index);
+  VQBE_DEF_TYPE void array_list_remove_at(array_list_t* list, unsigned int index);
+  VQBE_DEF_TYPE void array_list_clear(array_list_t* list);
 
 #ifdef __cplusplus
 }
 #endif
 
-#ifdef VQ_ARRAY_LIST_IMPLEMENTATION
-
+#ifdef VQBE_ARRAY_LIST_IMPLEMENTATION
 
 #include <stdlib.h>
 
@@ -56,8 +53,8 @@ array_list_t* array_list_new(size_t element_size) {
   array_list_t* new_array_list = (array_list_t*)malloc(sizeof(array_list_t));
   new_array_list->element_size = element_size;
   new_array_list->count = 0;
-  new_array_list->capacity = VQ_DEFAULT_ARRAY_LIST_SIZE;
-  new_array_list->data = (void**)malloc(sizeof(void*) * VQ_DEFAULT_ARRAY_LIST_SIZE);
+  new_array_list->capacity = VQBE_DEFAULT_ARRAY_LIST_SIZE;
+  new_array_list->data = (void**)malloc(sizeof(void*) * VQBE_DEFAULT_ARRAY_LIST_SIZE);
   return new_array_list;
 }
 

@@ -16,6 +16,6 @@ You should select exactly one C/C++ source file that instantiates the code, pref
 ```c
 #include ...
 #include ...
-#define VQ_LINKED_LIST_IMPLEMENTATION
+#define VQBE_LINKED_LIST_IMPLEMENTATION
 #include "linked_list.h"
 ```
